@@ -11,4 +11,5 @@ test('verify cryptocurrency page displays accurate information', async ({ page }
   const resultOptionBitcoin = await page.locator('css=.tippy-content .new-style :first-child a').first();
   await resultOptionBitcoin.click();
   await expect(page).toHaveURL("https://coinmarketcap.com/currencies/bitcoin/");
+  
 });
