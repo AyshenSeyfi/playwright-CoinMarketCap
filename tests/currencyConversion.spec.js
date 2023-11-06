@@ -1,7 +1,9 @@
+import { HomePage } from '../page-objects/HomePage';
 const { test, expect } = require('@playwright/test');
 
 test('verify that user can change currency', async ({ page }) => {
-  await page.goto('https://coinmarketcap.com/');
+  const homePage = new HomePage(page)
+  await homePage.visit()
   await expect(page).toHaveTitle(/Cryptocurrency Prices, Charts And Market Capitalizations | CoinMarketCap/);
   const currency = await page.locator("button[title='Select Currency']");
   await currency.click();

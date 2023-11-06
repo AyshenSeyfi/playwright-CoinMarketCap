@@ -1,8 +1,10 @@
-
+import { HomePage } from '../page-objects/HomePage';
 const { test, expect } = require('@playwright/test');
 
+
 test('verify cryptocurrency page displays accurate information', async ({ page }) => {
-  await page.goto('https://coinmarketcap.com/');
+  const homePage = new HomePage(page)
+  await homePage.visit()
   await expect(page).toHaveTitle(/CoinMarketCap/);
   const search = await page.locator('[data-text="Use to trigger search"]');
   await search.click();
